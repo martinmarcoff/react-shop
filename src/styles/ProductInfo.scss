@@ -1,7 +1,12 @@
 @use 'vars';
 
+.inactive{
+	display:none
+}
+
 .ProductInfo {
 	margin: 24px 24px 0 24px;
+	
 }
 .ProductInfo p:nth-child(1) {
 	font-weight: bold;

@@ -1,24 +1,30 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import '../styles/ProductItem.scss';
-import AddToCart from '../assets/icons/bt_add_to_cart.svg'
+import AddToCartImage from '../assets/icons/bt_add_to_cart.svg'
+import AppContext from '../context/AppContext'
 
-const ProductItem = () => {
-	const [cart, setCart] = useState([])
+//recibe como argumento el elemento product (del array products), proveniente de ProductList. 
+//es cada elemento del array que pedimos a la API
+const ProductItem = ({product}) => {
+	const{addToCart} = useContext(AppContext)
 	
-	const handleClick = () => {
-		setCart([])
+	const handleClick = item => {
+		addToCart(item)
 	}
+	
 
 	return (
 		<div className="ProductItem">
-			<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+			{/* utiliza las propiedades del state para renderizar */}
+			<img src={product.images[0]} alt={product.title} />
 			<div className="product-info">
 				<div>
-					<p>$120,00</p>
-					<p>Bike</p>
+					{/* utiliza las propiedades del state para renderizar */}
+					<p>{product.title}</p>
+					<p>${product.price}</p>
 				</div>
-				<figure onClick={handleClick}>
-					<img src={AddToCart} alt="" />
+				<figure onClick={() => handleClick(product)}>
+					<img src={AddToCartImage} alt="" />
 				</figure>
 			</div>
 		</div>

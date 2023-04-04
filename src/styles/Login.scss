@@ -20,6 +20,7 @@
 .form {
 	display: flex;
 	flex-direction: column;
+	border: lightgrey 2px solid;
 }
 .form a {
 	color: var(--hospital-green);

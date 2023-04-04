@@ -1,22 +1,44 @@
 @use 'vars';
 
+.inactive {
+	display: none
+}
+
 .MyOrder {
 	width: 360px;
 	padding: 24px;
 	box-sizing: border-box;
 	position: absolute;
 	right: 0;
+	background-color: white;
+	top: 60px;
+	bottom: auto;
+	border-radius: 6px;
+	border: 1px solid var(--very-light-pink)
 }
+
+.my-order-content{
+	overflow-y: scroll;
+	max-height: 400px;
+	scroll-behavior: smooth;
+  }
+
 .title-container {
 	display: flex;
 }
 .title-container img {
 	transform: rotate(180deg);
 	margin-right: 14px;
+	margin-left: -20px;
+	width: 20px;
+	height: 20px;
+	padding: 15px;
 }
 .title {
 	font-size: var(--lg);
 	font-weight: bold;
+	display: flex;
+	justify-content: center;
 }
 .order {
 	display: grid;
